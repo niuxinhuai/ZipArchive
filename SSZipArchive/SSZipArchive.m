@@ -897,8 +897,9 @@ BOOL _fileIsSymbolicLink(const unz_file_info *fileInfo);
         //   is expected to not include a byte order mark (BOM).
         
         //  Code Page 437 corresponds to kCFStringEncodingDOSLatinUS
-        NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingDOSLatinUS);
-        NSString* strPath = [NSString stringWithCString:filename encoding:encoding];
+//        NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingDOSLatinUS);
+        NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        NSString* strPath = [NSString stringWithCString:filename encoding:enc];
         if(strPath) return strPath;
     }
     
